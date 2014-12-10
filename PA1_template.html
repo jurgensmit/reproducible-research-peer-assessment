@@ -254,9 +254,11 @@ mostActiveInterval = stepsPerInterval[which.max(stepsPerInterval$steps), ]
 missingValues &lt;- activity[is.na(activity$steps), ]
 </code></pre>
 
-<p>The number of missing values in the dataset is 2304</p>
+<p>The number of missing values in the dataset is 2304.</p>
 
-<pre><code class="r"># replace the missing values with the average of the interval accross the other days 
+<p>The missing values will be replaced by the mean number of steps for the 5-minute interval the samples is in across all days.</p>
+
+<pre><code class="r"># replace the missing values with the average of the interval accross all days 
 missingValues &lt;- merge(missingValues, stepsPerInterval, by=&quot;interval&quot;)
 
 # sort the missing values again as the merging destroys the original sequence

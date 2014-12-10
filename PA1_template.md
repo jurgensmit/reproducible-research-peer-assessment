@@ -72,11 +72,13 @@ The 5-minute interval 835, on average across all the days in the dataset, contai
 missingValues <- activity[is.na(activity$steps), ]
 ```
 
-The number of missing values in the dataset is 2304
+The number of missing values in the dataset is 2304.
+
+The missing values will be replaced by the mean number of steps for the 5-minute interval the samples is in across all days.
 
 
 ```r
-# replace the missing values with the average of the interval accross the other days 
+# replace the missing values with the average of the interval accross all days 
 missingValues <- merge(missingValues, stepsPerInterval, by="interval")
 
 # sort the missing values again as the merging destroys the original sequence
